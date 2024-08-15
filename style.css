@@ -1,0 +1,76 @@
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body{
+background: url(images/ab.jpg)no-repeat center center/cover;
+height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.accordion{
+  width: 65%;
+  background-color: white;
+  padding: 30px;
+  border-radius: 30px;
+}
+ .accordion-title{
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 3rem;
+}
+.accordion .content-container .question{
+  padding: 19px 0px;
+  font-size: 32px;
+  cursor: pointer;
+  border-bottom: 1px solid black;
+  position: relative;
+  
+}
+ .question::after{
+  content: '+';
+  font-size: 2rem;
+  font-weight: bold;
+position: absolute;
+right: -5px;
+}
+ .answer {
+  padding-top: 15px;
+  height: 0px;
+  line-height: 1.5;
+  width: 100%;
+  overflow: hidden;
+  transition: 0.5s ease;
+}
+
+.active .answer {
+  height: 80px;
+  font-size: 1.3rem;
+  
+}
+.active .question {
+  font-size: 18px;
+  transition: 0.5s;
+}
+.content-container.active .question::after {
+  content: '-';
+  font-size: 2rem;           /* because .content-container.active when wriiten tghtr will have higher css specificity and will allow to change the + into -, same solution can be found if we do .accordion .active, no need to write it tghr, specificty will still be greater*/
+  font-weight: bold;
+  transition: 0.5s;
+}
+
+/* .hidden{
+  height: 0px;
+display: none;
+transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+ } */
+ /* .active{
+  padding-top: 15px;
+  line-height: 1.5;   
+  height: auto;               
+  width: 100%;
+  display: block;
+  
+ } */
